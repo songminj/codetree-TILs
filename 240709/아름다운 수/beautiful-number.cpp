@@ -1,22 +1,24 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int func(int n, int N){
-    if (n == 0) {
-        return 1;
+int func(int n) {
+    vector<int> dp(n + 1, 0);
+    dp[0] = 1;
+    
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            dp[i] += dp[i - j];
+        }
     }
-    int count = 0;
-    for (int i = 1; i <= N && i <= n; i++){
-        count += func(n-i, N);
-    }
-    return count;
+    
+    return dp[n];
 }
 
 int main() {
     int N;
     cin >> N;
-
-    int result = func(N, N);
-    cout << result;
+    
+    cout << func(N);
     return 0;
 }
