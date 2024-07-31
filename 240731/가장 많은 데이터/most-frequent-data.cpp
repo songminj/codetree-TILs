@@ -4,26 +4,23 @@
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(false);  // 더 빠른 입출력 설정
+    cin.tie(NULL);
+
     int n;
-    cin >>n;
+    cin >> n;
     unordered_map<string, int> m;
-    
-    for (int i = 0; i <n; i++){
+
+    int maxFreq = 0;  // 최대 빈도 계산
+    for (int i = 0; i < n; ++i) {
         string k;
         cin >> k;
-        if (m.find(k) != m.end()) {
-            m[k]++;
-        } else {
-            m[k] = 1;
+        m[k]++;
+        if (m[k] > maxFreq) {
+            maxFreq = m[k];
         }
     }
 
-    int val =0;
-    for(const auto& elem : m){
-        if (val < elem.second) {
-            val = elem.second;
-        }
-    }
-    cout << val;
+    cout << maxFreq << endl;  // 최대 빈도 출력
     return 0;
 }
