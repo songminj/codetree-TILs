@@ -17,7 +17,7 @@ int main() {
     for (const auto& elem : um){
         int num = elem.first;
         int con = k-num;
-        if (!check[num]){
+        if (check.find(num) == check.end()){
             check[num] = true;
             check[con] = true;
             res += um[num]*um[con];
