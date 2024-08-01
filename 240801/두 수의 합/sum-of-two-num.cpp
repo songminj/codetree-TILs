@@ -17,14 +17,14 @@ int main() {
     for (const auto& elem : um){
         int num = elem.first;
         int con = k-num;
-        if (check.find(num) != check.end()){
+        if (check.find(con) != check.end()){
             if (num == con){
                 res += (um[num] * (um[num]-1))/2;
             } else {
                 res += um[num]*um[con];
             }
         }
-        um[con] = 1;
+        um[con] = 0;
     }
     cout << res;
     return 0;
