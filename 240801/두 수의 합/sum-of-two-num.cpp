@@ -24,7 +24,7 @@ int main() {
                 res += um[num]*um[con];
             }
         }
-        um[con] = 0;
+        um[con] = 1;
     }
     cout << res;
     return 0;
