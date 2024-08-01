@@ -21,7 +21,7 @@ int main() {
             check[num] = true;
             check[con] = true;
             if (num == con){
-                res += um[num] * (um[num]-1);
+                res += (um[num] * (um[num]-1))/2;
             } else {
                 res += um[num]*um[con];
             }
