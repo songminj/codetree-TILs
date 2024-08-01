@@ -21,7 +21,7 @@ int main() {
         um[arr[i]]--;
         for (int j = 0; j < i; j++){
             if(um.count(k-arr[i]-arr[j]) > 0)
-                ans += um[k-arr[i]-arr[j]]
+                ans += um[k-arr[i]-arr[j]];
         }
     }
     cout << ans;
