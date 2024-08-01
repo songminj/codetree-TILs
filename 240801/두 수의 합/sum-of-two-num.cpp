@@ -20,7 +20,11 @@ int main() {
         if (check.find(num) == check.end()){
             check[num] = true;
             check[con] = true;
-            res += um[num]*um[con];
+            if (num == con){
+                res += um[num] * (um[num]-1);
+            } else {
+                res += um[num]*um[con];
+            }
         }
     }
     cout << res;
