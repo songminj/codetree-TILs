@@ -1,23 +1,28 @@
 #include <iostream>
 #include <unordered_map>
-#include <vector>
 using namespace std;
 
 int main() {
     int n, k;
+    int res = 0;
     cin >> n >> k;
-    vector<int> v(n);
     unordered_map<int, int> um;
+    unordered_map<int, bool> check;
 
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        int newk;
+        cin >> newk;
+        um[newk]++;
     }
-    for (int i = 0; i < n-1; i++){
-        for (int j = i+1; j < n; j++){
-            int key = v[i] + v[j];
-            um[key]++;
+    for (const auto& elem : um){
+        int num = elem.first;
+        int con = k-num;
+        if (!check[num]){
+            check[num] = true;
+            check[con] = true;
+            res += um[num]*um[con];
         }
     }
-    cout << um[k];
+    cout << res;
     return 0;
 }
