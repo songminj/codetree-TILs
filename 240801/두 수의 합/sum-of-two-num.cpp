@@ -15,11 +15,7 @@ int main() {
     for (int i = 0; i < n-1; i++){
         for (int j = i+1; j < n; j++){
             int key = v[i] + v[j];
-            if (um.find(key) != um.end()){
-                um[key]++;
-            } else{
-                um[key] = 1;
-            }
+            um[key]++;
         }
     }
     cout << um[k];
