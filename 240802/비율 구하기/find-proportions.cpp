@@ -1,7 +1,6 @@
 #include <iostream>
 #include <map>
-#include <string>
-#include <cmath>
+#include <iomanip> 
 using namespace std;
 
 int n;
@@ -13,13 +12,12 @@ int main() {
         cin >> s;
         m[s]++;
     }
+    double total = n;
     map<string, int>::iterator it;
     for (it = m.begin(); it != m.end(); it++){
-        double rate = round(it->second * 100 / n);
+        double rate = (it->second / total) * 100;
         cout << it->first << " ";
-        cout << fixed;
-        cout.precision(4);
-        cout << rate << "\n";
+        cout << fixed << setprecision(4) << rate << "\n";
     }
     return 0;
 }
