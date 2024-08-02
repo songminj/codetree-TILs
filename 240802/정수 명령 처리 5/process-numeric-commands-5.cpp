@@ -8,7 +8,7 @@ string c;
 int main() {
     vector<int> v;
     cin >> n;
-    for (int i = 0; i<n; i++){
+    for (int i = 0; i < n; i++) {
         cin >> c;
         if (c == "size") {
             int s = v.size();
@@ -16,7 +16,7 @@ int main() {
         } else {
             int k;
             cin >> k;
-            if(c == "push_back") {
+            if (c == "push_back") {
                 v.push_back(k);
             } else if (c == "pop_back") {
                 v.pop_back();
