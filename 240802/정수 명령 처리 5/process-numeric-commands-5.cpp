@@ -11,17 +11,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> c;
         if (c == "size") {
-            int s = v.size();
-            cout << s << "\n";
+            cout << v.size() << "\n";
+        } else if (c == "pop_back") {
+            if (!v.empty())
+                v.pop_back();
         } else {
             int k;
             cin >> k;
             if (c == "push_back") {
                 v.push_back(k);
-            } else if (c == "pop_back") {
-                v.pop_back();
             } else if (c == "get") {
-                cout << v[k-1] << "\n";
+                if ( k <= v.size())
+                    cout << v[k-1] << "\n";
             }
         }
     }
