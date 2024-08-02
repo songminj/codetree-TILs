@@ -25,10 +25,14 @@ int main() {
             m.erase(k);
         } else if (cmd == "print_list"){
             map<int, int>::iterator it;
-            for (it = m.begin(); it != m.end(); it++){
-                cout << (it -> second) << " "; 
+            if (m.empty()) {
+                cout << "None" << "\n";
+            } else {
+                for (it = m.begin(); it != m.end(); it++){
+                    cout << (it -> second) << " "; 
+                }
+                cout << "\n";
             }
-            cout << "\n";
         }
     }
     return 0;
