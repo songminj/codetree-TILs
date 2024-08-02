@@ -5,19 +5,17 @@
 using namespace std;
 
 int n;
-int total = 0;
 int main() {
     cin >> n;
     map<string, int> m;
     for (int i = 0; i < n; i++){
         string s;
         cin >> s;
-        m[s] = s.length();
-        total += s.length();
+        m[s]++;
     }
     map<string, int>::iterator it;
     for (it = m.begin(); it != m.end(); it++){
-        double rate = round((static_cast<double>(it->second)/total) * 10000)/100;
+        double rate = round(it->second * 100 / n);
         cout << it->first << " ";
         cout << fixed;
         cout.precision(4);
