@@ -18,7 +18,7 @@ int main() {
                 cout << -pq.top() << endl;
                 pq.pop();
             } else {
-                cout << "0\n"
+                cout << "0\n";
             }
         }
     }
