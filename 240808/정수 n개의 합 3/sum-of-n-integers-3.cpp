@@ -5,10 +5,10 @@ int n, k;
 int num;
 int main() {
     cin >> n >> k;
-    int res = 1;
+    int res =0;
     int prefix_sum[n+1][n+1] = {};
     prefix_sum[0][0] = 0;
-    for (int i = 1; i <= n; i++){
+    for (int i = 0; i <= n; i++){
         prefix_sum[i][0] = 0;
         prefix_sum[0][i] = 0;
     }
