@@ -5,8 +5,9 @@ int n, k;
 int num;
 int main() {
     int res = 0;
-    int prefix_sum[n+1] {};
     cin >>n >> k;
+    int prefix_sum[n+1] {};
+
     prefix_sum[0] = 0;
     for (int i = 1; i <= n; i++){
         cin >> num;
