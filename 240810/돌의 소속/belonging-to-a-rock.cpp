@@ -4,6 +4,8 @@ using namespace std;
 int n, q, k;
 int a, b;
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
     cin >> n >> q;
     int prefix_sum[n+1][3] = {};
     for (int i = 0; i < 3; i++) {
