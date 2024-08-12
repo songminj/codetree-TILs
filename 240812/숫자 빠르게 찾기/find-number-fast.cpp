@@ -21,6 +21,9 @@ int binary_search(int* target, vector<int>* v){
 
 int n, m, p;
 int main() {
+    ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
     cin >> n >> m;
     vector<int> v(n);
 
