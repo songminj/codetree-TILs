@@ -6,7 +6,7 @@
 using namespace std;
 
 int n;
-float m;
+double m;
 vector<vector<float>> v;
 
 int main() {
