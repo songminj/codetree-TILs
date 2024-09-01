@@ -1,45 +1,45 @@
 #include <iostream>
 #include <vector>
+#include <tuple>
 #include <algorithm>
-#include <iomanip>  // For fixed and setprecision
 
 using namespace std;
 
-int n;
-double m;
-vector<vector<float>> v;
+// 변수 선언
+int n, m;
+vector<tuple<double, int, int> > jewels;
+double ans;
 
 int main() {
+    // 입력:
     cin >> n >> m;
-    v.resize(n, vector<float>(3));
-
-    for (int i = 0; i < n; i++) {
-        // 0: 무게 / 1: 가격
-        cin >> v[i][0] >> v[i][1];
-        v[i][2] = v[i][1] / v[i][0];  // 단위 무게당 가격
+    for(int i = 0; i < n; i++) {
+        int w, v;
+        cin >> w >> v;
+        jewels.push_back(make_tuple(-(double)v / w, w, v));
     }
 
-    // 2번 인덱스(세 번째 열)를 기준으로 내림차순 정렬
-    sort(v.begin(), v.end(), [](const vector<float>& a, const vector<float>& b) {
-        return a[2] > b[2];
-    });
+    // 가치 / 무게가 내림차순이 되도록 정렬합니다.
+    sort(jewels.begin(), jewels.end());
 
-    float ans = 0.0;
-    int idx = 0;
-    
-    while (m > 0 && idx < n) {
-        if (m >= v[idx][0]) {
-            ans += v[idx][1];
-            m -= v[idx][0];
-        } else {
-            float tmp = (m / v[idx][0]) * v[idx][1];
-            ans += tmp;
-            m = 0;  // m가 0이 되면 더 이상 구매할 수 없음
+    for(int i = 0; i < n; i++) {
+        int w, v;
+        tie(ignore, w, v) = jewels[i];
+        // 현재 보석을 온전히 다 담을 수 있다면 그대로 담아줍니다.
+        if(m >= w) {
+            m -= w;
+            ans += v;
         }
-        idx++;
+        // 만약 부분만 담을 수 있다면
+        // 비율에 맞춰 담아준 뒤 종료합니다.
+        else {
+            ans += (double)m / w * v;
+            break;
+        }
     }
 
-    cout << fixed << setprecision(3) << ans << endl;
-
+    cout << fixed;
+    cout.precision(3);
+    cout << ans;
     return 0;
 }
