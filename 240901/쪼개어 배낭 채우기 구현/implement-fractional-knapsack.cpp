@@ -5,7 +5,8 @@
 
 using namespace std;
 
-int n, m;
+int n;
+float m;
 vector<vector<float>> v;
 
 int main() {
